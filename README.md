@@ -7,7 +7,7 @@ Build a system that maps each player across two video feeds (broadcast.mp4 and t
 ### 🧠 Approach & Architecture
 
 ## 1. Player Detection
-Used a custom-trained YOLOv8 model (yolov8_player_ball.pt) fine-tuned for player and ball detection.
+Used a Pre-trained YOLOv11 model fine-tuned for player and ball detection.
 
 Run on both input videos to extract bounding boxes and confidence scores.
 
@@ -31,11 +31,10 @@ player_reidentification/
 ├── run_reid.py                  # 🚀 Main pipeline runner
 ├── requirements.txt             # Required Python packages
 ├── README.md                    # 📘 This file
-├── report.md / report.pdf       # 📄 report
 ├── .gitignore                   # 🚫 Ignore list
 │
 ├── models/                      # 🔍 Detection model (add yolov8_player_ball.pt manually)
-│   └── yolov8_player_ball.pt    # [ignored in repo]
+│   └── model file link    # [ignored in repo]
 │
 ├── videos/                      # 🎥 Input videos (add manually)
 │   ├── broadcast.mp4
@@ -55,17 +54,8 @@ player_reidentification/
 
 ## 📁 Download Required Files
 
-Due to GitHub's 100MB limit, large files are hosted externally:
-
-### 🔗 Assets
-
-- 📦 [YOLOv8 Model (yolov8_player_ball.pt)](https://drive.google.com/drive/folders/1xSFftTeksjL5WTXLQM6g3pagd_ylbc2A?usp=sharing)
-- 🎥 [Video Files (broadcast.mp4 & tacticam.mp4)](https://drive.google.com/drive/folders/1xSFftTeksjL5WTXLQM6g3pagd_ylbc2A?usp=sharing)
-
 > 📂 After downloading:
-> - Place `yolov8_player_ball.pt` in the `models/` directory
-> - Place `broadcast.mp4` and `tacticam.mp4` in the `videos/` directory
-
+> - Place `best.pt` in the `models/` directory
 
 ## ⚙️ Setup & Installation
 
@@ -111,23 +101,3 @@ Missing / blurred detections: Required filtering by confidence
 Color similarity limitations: HSV histograms helped but are not enough for visually identical jerseys
 
 Re-ID embeddings: Not used to keep the pipeline lightweight and interpretable
-
-### 🚧 Limitations & Future Work
-✅ Functional baseline built with clear matching logic
-
-❌ No temporal consistency yet
-
-❌ No use of jersey number OCR or advanced embeddings
-
-### 🧩 Next steps:
-
-Add temporal smoothing across frames
-
-Integrate jersey OCR for hard cases
-
-Apply Re-ID pretrained networks (e.g., OSNet, FastReID)
-
-
-### 👤 Author
-Ommpakash Mohanty
-📧 ommprakashmohanty@gmail.com
