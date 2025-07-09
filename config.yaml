@@ -1,0 +1,10 @@
+model_path: models/yolov8_player_ball.pt
+
+video_paths:
+  broadcast: videos/broadcast.mp4
+  tacticam: videos/tacticam.mp4
+
+output_dir: outputs/
+
+confidence_threshold: 0.4
+device: cpu  # or "cuda" if you have a GPU
